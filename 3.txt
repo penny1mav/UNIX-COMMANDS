@@ -1,0 +1,29 @@
+
+3) #!bin#bash
+var1=0
+var2=0
+var3=0
+list1=0
+list2=0
+list3=0
+echo"give me the file"
+read x
+ if test -f "$x" ; then
+ echo "give me a text"
+ read y
+ var1=$( grep -n ^$y $x)
+ list1=$( grep -n ^$y $x | wc -l)
+ echo "grammes pou exoun to alfarithmitiko:" $var1
+ echo "arithmos :" $list1
+ var2=$( grep -w -n $y $x)
+ list2=$ grep -w -n $y $x | wc -l)
+ echo "grammes pou exoun to alfarithmitiko ws leksi:" $var2
+ echo "arithmos:" $list2
+ var3=$( grep -n $y$ $x)
+ list3=$( grep -n $y$ $x | wc -l)
+ echo "grammes pou teleiwnoun me to alfarithmitiko:" $var3
+ echo "arithmos:" $list3
+else
+ echo "file does not exist"
+ fi
+exit 0

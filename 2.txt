@@ -1,0 +1,50 @@
+2)#!/bin/bash
+var=0
+list=0
+echo "give me the first number"
+read a
+echo "give me the second number"
+read b
+echo "give me the name of a directory"
+read x
+ while [ $x !=0 ] ; do
+  if test -d "$x" ; then
+   echo "the answer to the first question."
+   var1=$(find $x -perm $a | wc -l)
+   echo "files : " $var1
+   list1=$(find $x -perm $a -ls)
+   echo "logs :" $list1
+   echo "the answer to the second question."
+   var2=$(find $x -mtime -$b | wc -l)
+   echo "files:" $var2
+   list2=$(find $x -mtime -$b -ls)
+   echo "the answer to the third question."
+   var3=$(find /$x -mtime -$b |wc -l)
+   echo "files:" $var3
+   list3$(find /$x -mtime -$b -ls)
+   echo "logs:" $list3
+   echo "the answer to the fourth question"
+   var4=$(find $x -type s -type p | wc -l)
+   echo "files:" $var4
+   list4=$(find $x -type s -type p -ls
+   echo "logs:" $list4
+   echo "the answer to the fifth question"
+   var5=$(find $x -empty | wc -l)
+   echo "files:" $var5
+   list5=$(find $x -empty -ls)
+   echo "files:" $list5
+  else
+   echo "catalogue doesnt exist"
+  fi
+ echo "give me the first number"
+ read a
+ echo "give me the second number"
+ read b
+ echo "give me the name of a directory"
+ read x
+ done
+echo "logs: "
+let "var=$var1+$var2+$var3+$var4+$var5"
+let "list=$list1+list2+list3+list4+list5"
+echo "done. we have found" $var "results"
+exit 0
